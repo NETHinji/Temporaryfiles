@@ -1,0 +1,33 @@
+create Schema Shanu3
+create table shanu3.AddLenevo
+(
+ServiceId varchar(6) primary key,
+DateNow Date not null,
+OwnerNane varchar(20) not null,
+Contact bigInt not null,
+DeviceType varchar(30) not null,
+serialNo varchar(14) not null,
+Issue varchar(300)
+)
+
+create proc Shanu3.uspAddLenevo
+(
+
+@ServiceId varchar(6),
+@OwnerName varchar(50),
+ @Contact bigInt,
+   @DateNow Date,
+   @DeviceType varchar(50),
+   @SerialNo varchar(14),
+   @Issue varchar(300)
+   )
+   as 
+   begin 
+   insert into Shanu3.AddLenevo
+   values(@ServiceId,@DateNow,@OwnerName,@Contact,@DeviceType,@SerialNo,@Issue)
+   end
+   create proc Shanu3.uspDisplay
+    as
+  begin
+  select * from Shanu3.AddLenevo
+  end
